@@ -31,7 +31,7 @@ a file directly on the disk, and it makes it easy to ship a new
 archive that will override a previous archive on a per-file basis.
 Finally, PhysicsFS gives you platform-abstracted means to determine if
 CD-ROMs are available, the user's home directory, where in the real
-filesystem your program is running, etc. 
+filesystem your program is running, etc.
 
 %description -l pl
 PhysicsFS to biblioteka udostêpniaj±ca abstrakcyjny dostêp do ró¿nych
