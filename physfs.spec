@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.gz
+# Source0-md5:	4993d229d38c0207c00074831fd7b8be
 URL:		http://www.icculus.org/physfs/
 BuildRequires:	doxygen
 BuildRequires:	ncurses-devel
