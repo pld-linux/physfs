@@ -1,16 +1,12 @@
-#
-# TODO: correct %%patch0 (autoXXX thing)
-#
 Summary:	PhysicsFS file abstraction layer for games
 Summary(pl):	PhysicsFS - warstwa abstrakcji plików dla gier
 Name:		physfs
 Version:	1.0.0
-Release:	0.1
+Release:	1
 License:	BSD-like (see LICENSE)
 Group:		Libraries
 Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	d02a8543a95d0550490cf4f96e0ddebf
-Patch0:		%{name}-link.patch
 URL:		http://www.icculus.org/physfs/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -109,7 +105,6 @@ PhysicsFS.
 
 %prep
 %setup -q
-#%%patch -p1
 
 %build
 %{__libtoolize}
