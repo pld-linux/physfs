@@ -1,14 +1,18 @@
 Summary:	PhysicsFS file abstraction layer for games
 Summary(pl):	PhysicsFS - warstwa abstrakcji plików dla gier
 Name:		physfs
-Version:	0.1.8
+Version:	0.1.9
 Release:	1
-License:	LGPL
+License:	BSD-like (see LICENSE)
 Group:		Libraries
 Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	4993d229d38c0207c00074831fd7b8be
+# Source0-md5:	ee61f31d15563a3f785adbd800933631
+Patch0:		%{name}-link.patch
 URL:		http://www.icculus.org/physfs/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	doxygen
+BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 BuildRequires:	zlib-devel
@@ -58,6 +62,7 @@ Summary:	Header files for PhysicsFS development
 Summary(pl):	Pliki nag³ówkowe do programowania z u¿yciem PhysicsFS
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	zlib-devel
 
 %description devel
 PhysicsFS is a library to provide abstract access to various archives.
@@ -101,10 +106,18 @@ PhysicsFS.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
-%{__make}
+# unused beos.cpp causes unnecessary using CXXLINK... workaround
+%{__make} \
+	CXXLINK="\$(LINK)"
 
 doxygen
 
@@ -125,7 +138,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG CREDITS
+%doc CHANGELOG CREDITS LICENSE TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
