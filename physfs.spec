@@ -2,7 +2,7 @@ Summary:	PhysicsFS file abstraction layer for games
 Summary(pl):	PhysicsFS - warstwa abstrakcji plików dla gier
 Name:		physfs
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	BSD-like (see LICENSE)
 Group:		Libraries
 Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.gz
