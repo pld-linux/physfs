@@ -60,7 +60,7 @@ w prawdziwym systemie plików dzia³a program itp.
 Summary:	Header files for PhysicsFS development
 Summary(pl):	Pliki nag³ówkowe do programowania z u¿yciem PhysicsFS
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	zlib-devel
 
 %description devel
@@ -77,7 +77,7 @@ budowania programów z u¿yciem PhysicsFS.
 Summary:	Static PhysicsFS libraries
 Summary(pl):	Statyczne biblioteki PhysicsFS
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 PhysicsFS is a library to provide abstract access to various archives.
@@ -91,7 +91,7 @@ archiwów. Ten pakiet zawiera statyczne biblioteki PhysicsFS.
 Summary:	Program for testing PhysicsFS archives
 Summary(pl):	Program do testowania archiwów PhysicsFS
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description programs
 PhysicsFS is a library to provide abstract access to various archives.
