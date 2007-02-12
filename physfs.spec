@@ -1,5 +1,5 @@
 Summary:	PhysicsFS file abstraction layer for games
-Summary(pl):	PhysicsFS - warstwa abstrakcji plików dla gier
+Summary(pl.UTF-8):   PhysicsFS - warstwa abstrakcji plikÃ³w dla gier
 Name:		physfs
 Version:	1.0.0
 Release:	2
@@ -36,29 +36,29 @@ Finally, PhysicsFS gives you platform-abstracted means to determine if
 CD-ROMs are available, the user's home directory, where in the real
 filesystem your program is running, etc.
 
-%description -l pl
-PhysicsFS to biblioteka udostêpniaj±ca abstrakcyjny dostêp do ró¿nych
-archiwów. Zosta³a stworzona z my¶l± o grach video, a projekt by³
-trochê wzorowany na podsystemie plików z Quake 3. Programista
-definiuje "katalog zapisu" w fizycznym systemie plików. ¯aden zapis do
-pliku poprzez API PhysicsFS nie mo¿e wyj¶æ poza ten katalog - ze
-wzglêdu na bezpieczeñstwo. Na przyk³ad, wbudowany jêzyk skryptowy nie
-mo¿e zapisywaæ poza t± ¶cie¿k±, je¿eli u¿ywa PhysicsFS do wszystkich
-operacji wej¶cia/wyj¶cia, dziêki czemu mo¿na bezpiecznie uruchamiaæ
-nie zaufane skrypty. Dowi±zania symboliczne tak¿e mog± byæ wy³±czone
-dla poprawy bezpieczeñstwa. Do odczytu pliku programista podaje
-katalogi i archiwa, które sk³adaj± siê na "¶cie¿kê poszukiwañ". Po
-zdefiniowaniu tej ¶cie¿ki, staje siê ona pojedynczym, przezroczystym
-hierarchicznym systemem plików. Pozwala to na ³atwy dostêp do plików
-ZIP w taki sam sposób, jak do plików na dysku, a tak¿e u³atwia
-dostarczenie nowego archiwum, które przykryje poprzednie na poziomie
-plików. Ponadto PhysicsFS daje wyabstrahowane od platformy sposoby na
-okre¶lenie, czy dostêpne s± CD-ROMy, katalog domowy u¿ytkownika, gdzie
-w prawdziwym systemie plików dzia³a program itp.
+%description -l pl.UTF-8
+PhysicsFS to biblioteka udostÄ™pniajÄ…ca abstrakcyjny dostÄ™p do rÃ³Å¼nych
+archiwÃ³w. ZostaÅ‚a stworzona z myÅ›lÄ… o grach video, a projekt byÅ‚
+trochÄ™ wzorowany na podsystemie plikÃ³w z Quake 3. Programista
+definiuje "katalog zapisu" w fizycznym systemie plikÃ³w. Å»aden zapis do
+pliku poprzez API PhysicsFS nie moÅ¼e wyjÅ›Ä‡ poza ten katalog - ze
+wzglÄ™du na bezpieczeÅ„stwo. Na przykÅ‚ad, wbudowany jÄ™zyk skryptowy nie
+moÅ¼e zapisywaÄ‡ poza tÄ… Å›cieÅ¼kÄ…, jeÅ¼eli uÅ¼ywa PhysicsFS do wszystkich
+operacji wejÅ›cia/wyjÅ›cia, dziÄ™ki czemu moÅ¼na bezpiecznie uruchamiaÄ‡
+nie zaufane skrypty. DowiÄ…zania symboliczne takÅ¼e mogÄ… byÄ‡ wyÅ‚Ä…czone
+dla poprawy bezpieczeÅ„stwa. Do odczytu pliku programista podaje
+katalogi i archiwa, ktÃ³re skÅ‚adajÄ… siÄ™ na "Å›cieÅ¼kÄ™ poszukiwaÅ„". Po
+zdefiniowaniu tej Å›cieÅ¼ki, staje siÄ™ ona pojedynczym, przezroczystym
+hierarchicznym systemem plikÃ³w. Pozwala to na Å‚atwy dostÄ™p do plikÃ³w
+ZIP w taki sam sposÃ³b, jak do plikÃ³w na dysku, a takÅ¼e uÅ‚atwia
+dostarczenie nowego archiwum, ktÃ³re przykryje poprzednie na poziomie
+plikÃ³w. Ponadto PhysicsFS daje wyabstrahowane od platformy sposoby na
+okreÅ›lenie, czy dostÄ™pne sÄ… CD-ROMy, katalog domowy uÅ¼ytkownika, gdzie
+w prawdziwym systemie plikÃ³w dziaÅ‚a program itp.
 
 %package devel
 Summary:	Header files for PhysicsFS development
-Summary(pl):	Pliki nag³ówkowe do programowania z u¿yciem PhysicsFS
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe do programowania z uÅ¼yciem PhysicsFS
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	zlib-devel
@@ -68,14 +68,14 @@ PhysicsFS is a library to provide abstract access to various archives.
 This package contains the development headers and documentaion to
 build programs using PhysicsFS.
 
-%description devel -l pl
-PhysicsFS to biblioteka udostêpniaj±ca abstrakcyjny dostêp do ró¿nych
-archiwów. Ten pakiet zawiera pliki nag³ówkowe i dokumentacjê do
-budowania programów z u¿yciem PhysicsFS.
+%description devel -l pl.UTF-8
+PhysicsFS to biblioteka udostÄ™pniajÄ…ca abstrakcyjny dostÄ™p do rÃ³Å¼nych
+archiwÃ³w. Ten pakiet zawiera pliki nagÅ‚Ã³wkowe i dokumentacjÄ™ do
+budowania programÃ³w z uÅ¼yciem PhysicsFS.
 
 %package static
 Summary:	Static PhysicsFS libraries
-Summary(pl):	Statyczne biblioteki PhysicsFS
+Summary(pl.UTF-8):   Statyczne biblioteki PhysicsFS
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -83,13 +83,13 @@ Requires:	%{name}-devel = %{version}-%{release}
 PhysicsFS is a library to provide abstract access to various archives.
 This package contains the static PhysicsFS libraries.
 
-%description static -l pl
-PhysicsFS to biblioteka udostêpniaj±ca abstrakcyjny dostêp do ró¿nych
-archiwów. Ten pakiet zawiera statyczne biblioteki PhysicsFS.
+%description static -l pl.UTF-8
+PhysicsFS to biblioteka udostÄ™pniajÄ…ca abstrakcyjny dostÄ™p do rÃ³Å¼nych
+archiwÃ³w. Ten pakiet zawiera statyczne biblioteki PhysicsFS.
 
 %package programs
 Summary:	Program for testing PhysicsFS archives
-Summary(pl):	Program do testowania archiwów PhysicsFS
+Summary(pl.UTF-8):   Program do testowania archiwÃ³w PhysicsFS
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -98,9 +98,9 @@ PhysicsFS is a library to provide abstract access to various archives.
 This package contains the programs using for PhysicsFS archives
 testing.
 
-%description programs -l pl
-PhysicsFS to biblioteka udostêpniaj±ca abstrakcyjny dostêp do ró¿nych
-archiwów. Ten pakiet zawiera program u¿ywany do testowania archiwów
+%description programs -l pl.UTF-8
+PhysicsFS to biblioteka udostÄ™pniajÄ…ca abstrakcyjny dostÄ™p do rÃ³Å¼nych
+archiwÃ³w. Ten pakiet zawiera program uÅ¼ywany do testowania archiwÃ³w
 PhysicsFS.
 
 %prep
