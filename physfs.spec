@@ -1,5 +1,5 @@
 Summary:	PhysicsFS file abstraction layer for games
-Summary(pl.UTF-8):   PhysicsFS - warstwa abstrakcji plików dla gier
+Summary(pl.UTF-8):	PhysicsFS - warstwa abstrakcji plików dla gier
 Name:		physfs
 Version:	1.0.0
 Release:	2
@@ -58,7 +58,7 @@ w prawdziwym systemie plików działa program itp.
 
 %package devel
 Summary:	Header files for PhysicsFS development
-Summary(pl.UTF-8):   Pliki nagłówkowe do programowania z użyciem PhysicsFS
+Summary(pl.UTF-8):	Pliki nagłówkowe do programowania z użyciem PhysicsFS
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	zlib-devel
@@ -75,7 +75,7 @@ budowania programów z użyciem PhysicsFS.
 
 %package static
 Summary:	Static PhysicsFS libraries
-Summary(pl.UTF-8):   Statyczne biblioteki PhysicsFS
+Summary(pl.UTF-8):	Statyczne biblioteki PhysicsFS
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -89,7 +89,7 @@ archiwów. Ten pakiet zawiera statyczne biblioteki PhysicsFS.
 
 %package programs
 Summary:	Program for testing PhysicsFS archives
-Summary(pl.UTF-8):   Program do testowania archiwów PhysicsFS
+Summary(pl.UTF-8):	Program do testowania archiwów PhysicsFS
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
