@@ -1,15 +1,14 @@
 Summary:	PhysicsFS file abstraction layer for games
 Summary(pl.UTF-8):	PhysicsFS - warstwa abstrakcji plików dla gier
 Name:		physfs
-Version:	1.0.1
-Release:	3
+Version:	1.1.1
+Release:	1
 License:	BSD-like (see LICENSE)
 Group:		Libraries
 Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	d0bd118c6b55fb1e020fe982d6ec6957
+# Source0-md5:	0359b67793c1c14f00de1d1bbeb8ed6a
 URL:		http://www.icculus.org/physfs/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	cmake
 BuildRequires:	doxygen
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
@@ -107,15 +106,12 @@ PhysicsFS.
 %setup -q
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure
-# unused beos.cpp causes unnecessary using CXXLINK... workaround
-%{__make} \
-	CXXLINK="\$(LINK)"
+%{__cmake} .
+
+# fix paths
+%{__sed} -i -e 's,/usr/local,/usr,g' cmake_install.cmake
+
+%{__make}
 
 doxygen
 
@@ -136,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG CREDITS LICENSE TODO
+%doc CHANGELOG.txt CREDITS.txt LICENSE.txt TODO.txt
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %ghost %{_libdir}/lib*.so.1
 
@@ -144,7 +140,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc docs/html
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
 %{_includedir}/physfs.h
 %{_mandir}/man3/*
 
