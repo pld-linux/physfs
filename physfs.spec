@@ -110,7 +110,10 @@ PhysicsFS.
 
 # fix paths
 %{__sed} -i -e 's,/usr/local,/usr,g' cmake_install.cmake
-
+# workaround for x86_64
+%ifarch %{x8664}
+%{__sed} -i -e 's,{CMAKE_INSTALL_PREFIX}/lib,{CMAKE_INSTALL_PREFIX}/lib64,g' cmake_install.cmake
+%endif
 %{__make}
 
 doxygen
