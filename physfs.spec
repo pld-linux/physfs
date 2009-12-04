@@ -106,7 +106,9 @@ PhysicsFS.
 %setup -q
 
 %build
-%{__cmake} .
+%{__cmake} . \
+	-DCMAKE_CXX_COMPILER_WORKS=1 \
+	-DCMAKE_CXX_COMPILER="%{__cc}"
 
 # fix paths
 %{__sed} -i -e 's,/usr/local,/usr,g' cmake_install.cmake
@@ -137,7 +139,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGELOG.txt CREDITS.txt LICENSE.txt TODO.txt
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%ghost %{_libdir}/lib*.so.1
+%attr(755,root,root) %ghost %{_libdir}/lib*.so.1
 
 %files devel
 %defattr(644,root,root,755)
