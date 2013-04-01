@@ -1,18 +1,18 @@
 Summary:	PhysicsFS file abstraction layer for games
 Summary(pl.UTF-8):	PhysicsFS - warstwa abstrakcji plików dla gier
 Name:		physfs
-Version:	1.1.1
+Version:	2.0.3
 Release:	1
 License:	BSD-like (see LICENSE)
 Group:		Libraries
-Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	0359b67793c1c14f00de1d1bbeb8ed6a
+Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.bz2
+# Source0-md5:	c2c727a8a8deb623b521b52d0080f613
 URL:		http://www.icculus.org/physfs/
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.4
 BuildRequires:	doxygen
-BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -106,16 +106,10 @@ PhysicsFS.
 %setup -q
 
 %build
-%{__cmake} . \
+%cmake . \
 	-DCMAKE_CXX_COMPILER_WORKS=1 \
 	-DCMAKE_CXX_COMPILER="%{__cc}"
 
-# fix paths
-%{__sed} -i -e 's,/usr/local,/usr,g' cmake_install.cmake
-# workaround for x86_64
-%ifarch %{x8664}
-%{__sed} -i -e 's,{CMAKE_INSTALL_PREFIX}/lib,{CMAKE_INSTALL_PREFIX}/lib64,g' cmake_install.cmake
-%endif
 %{__make}
 
 doxygen
@@ -138,19 +132,20 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.txt CREDITS.txt LICENSE.txt TODO.txt
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/lib*.so.1
+%attr(755,root,root) %{_libdir}/libphysfs.so.*.*
+%attr(755,root,root) %ghost %{_libdir}/libphysfs.so.1
 
 %files devel
 %defattr(644,root,root,755)
 %doc docs/html
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/libphysfs.so
 %{_includedir}/physfs.h
-%{_mandir}/man3/*
+%{_mandir}/man3/PHYSFS_*.3*
+%{_mandir}/man3/physfs.h.3*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libphysfs.a
 
 %files programs
 %defattr(644,root,root,755)
