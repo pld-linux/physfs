@@ -1,12 +1,12 @@
 Summary:	PhysicsFS file abstraction layer for games
 Summary(pl.UTF-8):	PhysicsFS - warstwa abstrakcji plików dla gier
 Name:		physfs
-Version:	2.0.3
-Release:	4
+Version:	3.0.2
+Release:	1
 License:	BSD-like (see LICENSE)
 Group:		Libraries
 Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	c2c727a8a8deb623b521b52d0080f613
+# Source0-md5:	dc751294aaf59d1359bbe34e693d1d87
 URL:		http://www.icculus.org/physfs/
 BuildRequires:	cmake >= 2.4
 BuildRequires:	doxygen
@@ -121,7 +121,7 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man3
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install docs/man/man3/{PHYS*,phys*} $RPM_BUILD_ROOT%{_mandir}/man3
+cp -p docs/man/man3/{PHYS*,phys*} $RPM_BUILD_ROOT%{_mandir}/man3
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -131,7 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG.txt CREDITS.txt LICENSE.txt TODO.txt
+%doc docs/{CHANGELOG.txt,CREDITS.txt,TODO.txt} LICENSE.txt
 %attr(755,root,root) %{_libdir}/libphysfs.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libphysfs.so.1
 
@@ -142,6 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/physfs.h
 %{_mandir}/man3/PHYSFS_*.3*
 %{_mandir}/man3/physfs.h.3*
+%{_pkgconfigdir}/physfs.pc
 
 %files static
 %defattr(644,root,root,755)
