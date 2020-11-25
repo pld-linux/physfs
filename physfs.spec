@@ -8,7 +8,7 @@ Group:		Libraries
 Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.bz2
 # Source0-md5:	dc751294aaf59d1359bbe34e693d1d87
 URL:		http://www.icculus.org/physfs/
-BuildRequires:	cmake >= 2.4
+BuildRequires:	cmake >= 2.8.4
 BuildRequires:	doxygen
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
