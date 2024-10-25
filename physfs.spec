@@ -1,17 +1,19 @@
 Summary:	PhysicsFS file abstraction layer for games
 Summary(pl.UTF-8):	PhysicsFS - warstwa abstrakcji plików dla gier
 Name:		physfs
-Version:	3.0.2
+Version:	3.2.0
 Release:	1
 License:	BSD-like (see LICENSE)
 Group:		Libraries
-Source0:	http://www.icculus.org/physfs/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	dc751294aaf59d1359bbe34e693d1d87
-URL:		http://www.icculus.org/physfs/
-BuildRequires:	cmake >= 2.8.4
+#Source0Download: https://github.com/icculus/physfs/releases
+Source0:	https://github.com/icculus/physfs/archive/release-%{version}/%{name}-release-%{version}.tar.gz
+# Source0-md5:	df43675566d86f795f0fe179087b231b
+URL:		https://www.icculus.org/physfs/
+BuildRequires:	cmake >= 3.0
 BuildRequires:	doxygen
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -86,6 +88,18 @@ This package contains the static PhysicsFS libraries.
 PhysicsFS to biblioteka udostępniająca abstrakcyjny dostęp do różnych
 archiwów. Ten pakiet zawiera statyczne biblioteki PhysicsFS.
 
+%package apidocs
+Summary:	API documentation for PhysicsFS library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki PhysicsFS
+Group:		Documentation
+BuildArch:	noarch
+
+%description apidocs
+API documentation for PhysicsFS library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki PhysicsFS.
+
 %package programs
 Summary:	Program for testing PhysicsFS archives
 Summary(pl.UTF-8):	Program do testowania archiwów PhysicsFS
@@ -103,25 +117,28 @@ archiwów. Ten pakiet zawiera program używany do testowania archiwów
 PhysicsFS.
 
 %prep
-%setup -q
+%setup -q -n %{name}-release-%{version}
 
 %build
-%cmake . \
+install -d build
+cd build
+%cmake .. \
 	-DCMAKE_CXX_COMPILER_WORKS=1 \
 	-DCMAKE_CXX_COMPILER="%{__cc}"
 
 %{__make}
 
-doxygen
+cd ..
+doxygen build/Doxyfile
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man3
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cp -p docs/man/man3/{PHYS*,phys*} $RPM_BUILD_ROOT%{_mandir}/man3
+cp -p build/docs/man/man3/{PHYS*,phys*} $RPM_BUILD_ROOT%{_mandir}/man3
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -137,16 +154,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc docs/html
 %attr(755,root,root) %{_libdir}/libphysfs.so
 %{_includedir}/physfs.h
+%{_pkgconfigdir}/physfs.pc
+%{_libdir}/cmake/PhysFS
 %{_mandir}/man3/PHYSFS_*.3*
 %{_mandir}/man3/physfs.h.3*
-%{_pkgconfigdir}/physfs.pc
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libphysfs.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%doc build/docs/html/*
 
 %files programs
 %defattr(644,root,root,755)
